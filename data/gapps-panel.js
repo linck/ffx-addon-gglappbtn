@@ -25,21 +25,35 @@ function get_sequence() {
 function layout_apps(list) {
   $("#ga-grid").empty();
 
-  for (i=0,l=list.length;i < l; i++) {
-    key = list[i];
-    $("#ga-grid").append(
-      $('<li>').attr('class', 'ui-state-default')
-               .data('ga-name', key).append(
-        $('<a>').attr('href', gapps_info[key]['url'])
-                .attr('class', 'ga-lnk').append(
-            $('<span>').attr('class', 'ga-ico gi-' + key)
-                       .css('background-position', gapps_info[key]['iconpos'])
-          ).append(
-            $('<span>').attr('class', 'ga-ico-desc').text(gapps_info[key]['desc'])
-          )
-        )
-    );
-  }
+  browser.storage.sync.get(
+    "appUrlGmail", function (urlGmail) {
+      console.log(urlGmail);
+     
+
+      for (i=0,l=list.length;i < l; i++) {
+        key = list[i];
+        var url = gapps_info[key]['url'];
+        if (urlGmail && key == 'gmail') {
+          url = urlGmail.appUrlGmail;
+          console.log("GMAIL URL BOLADO2: ", url);
+        }
+
+        $("#ga-grid").append(
+          $('<li>').attr('class', 'ui-state-default')
+                   .data('ga-name', key).append(
+            $('<a>').attr('href', url)
+                    .attr('class', 'ga-lnk').append(
+                $('<span>').attr('class', 'ga-ico gi-' + key)
+                           .css('background-position', gapps_info[key]['iconpos'])
+              ).append(
+                $('<span>').attr('class', 'ga-ico-desc').text(gapps_info[key]['desc'])
+              )
+            )
+        );
+      }
+    });
+    
+
 }
 
 //

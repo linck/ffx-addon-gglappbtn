@@ -10,6 +10,9 @@ function save(e) {
   browser.storage.sync.set({
     appList: $("#appList").val()
   });
+  browser.storage.sync.set({
+    appUrlGmail: $("#appUrlGmail").val()
+  });
   e.preventDefault();
 }
 
@@ -46,6 +49,15 @@ function restore() {
   }
   var getting = browser.storage.sync.get("appList");
   getting.then(set, onError);
+
+  browser.storage.sync.get(
+    "appUrlGmail", function (urlGmail) {
+      console.log(urlGmail);
+      if (urlGmail) {
+        $("#appUrlGmail").val(urlGmail.appUrlGmail);
+      }
+    }
+  );
 }
 
 //
