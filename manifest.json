@@ -11,7 +11,7 @@
 
   "applications": {
     "gecko": {
-      "id": "@gglappbtn",
+      "id": "@linkgglappbtn",
       "strict_min_version": "50.0"
     }
   },

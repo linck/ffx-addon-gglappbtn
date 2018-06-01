@@ -35,6 +35,9 @@ function layout_apps(list) {
         var url = gapps_info[key]['url'];
         if (urlGmail && key == 'gmail') {
           url = urlGmail.appUrlGmail;
+          if(!url || url == '') {
+            url = 'https://mail.google.com';
+          }
           console.log("GMAIL URL BOLADO2: ", url);
         }
 
