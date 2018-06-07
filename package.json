@@ -1,0 +1,22 @@
+{
+  "name": "ffx-addon-gglappbtn",
+  "version": "1.0.0",
+  "description": "Simple access to Google Applications with a tool bar button",
+  "main": "index.js",
+  "scripts": {
+    "initialize": "npm install --global web-ext",
+    "run": "web-ext run",
+    "build": "web-ext build",
+    "help": "echo https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linck/ffx-addon-gglappbtn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linck/ffx-addon-gglappbtn/issues"
+  },
+  "homepage": "https://github.com/linck/ffx-addon-gglappbtn#readme"
+}
